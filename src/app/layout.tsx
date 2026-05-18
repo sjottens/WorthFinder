@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     'resell calculator',
   ],
   authors: [{ name: 'WorthFinder' }],
+  icons: {
+    icon: '/favicon.svg',
+  },
   robots: {
     index: true,
     follow: true,
