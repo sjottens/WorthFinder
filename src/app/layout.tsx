@@ -70,6 +70,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-5016673566357322" />
+        
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-2T36DTQ63N"></script>
         <script dangerouslySetInnerHTML={{
