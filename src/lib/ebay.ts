@@ -63,6 +63,8 @@ export async function fetchEbaySoldListings(
     return [];
   }
 
+  console.info(`[eBay] Fetching listings for: "${query}"`);
+
   const params = new URLSearchParams({
     'OPERATION-NAME': 'findCompletedItems',
     'SERVICE-VERSION': '1.0.0',
