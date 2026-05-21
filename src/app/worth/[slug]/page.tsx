@@ -205,6 +205,14 @@ export default async function WorthPage({ params }: PageParams) {
           ]}
         />
 
+        {/* Search bar — lets visitors quickly search another product */}
+        <div className="mb-8 pb-6 border-b border-gray-100">
+          <h2 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">
+            Search another product
+          </h2>
+          <SearchBar className="w-full" />
+        </div>
+
         {/* Page heading */}
         <h1 className="text-3xl sm:text-4xl font-bold text-black tracking-tight mb-1">
           {query} Resale Value
@@ -237,14 +245,6 @@ export default async function WorthPage({ params }: PageParams) {
 
             {/* FAQ — important for SEO */}
             <FAQSection query={query} stats={data.stats} slug={slug} />
-
-            {/* Search bar — lets visitors search another product */}
-            <div className="pt-4 border-t border-gray-100">
-              <h2 className="text-base font-semibold text-gray-700 mb-3">
-                Search another product
-              </h2>
-              <SearchBar className="w-full" />
-            </div>
 
             {/* Related products — internal linking for SEO */}
             <RelatedProducts currentSlug={slug} items={allHistory} />
