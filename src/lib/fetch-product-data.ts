@@ -29,10 +29,15 @@ export async function fetchProductData(
 
   // Merge all sources, de-duplicate by URL, prefer eBay official > scrape > SerpAPI
   const seen = new Set<string>();
+  
+  // Strategy: Only use SerpAPI if we have very few eBay results (< 5)
+  // This prevents low current-market prices from skewing the historical sold-price average
+  const hasGoodEbayData = (ebayListings.length + scrapeListings.length) >= 5;
+  
   let allListings = [
     ...ebayListings,
     ...scrapeListings,
-    ...serpListings,
+    ...(hasGoodEbayData ? [] : serpListings), // Skip SerpAPI if we have good eBay data
   ].filter((l) => {
     if (!l.url || seen.has(l.url)) return false;
     seen.add(l.url);
